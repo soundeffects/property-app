@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import reducers from './reducers/root';
 
-import './styles/main.scss';
+import './main.css';
 
 import Header from './components/header';
 import SignIn from './components/signin';
