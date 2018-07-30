@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import registerServiceWorker from './registerServiceWorker';
@@ -10,10 +10,10 @@ import reducers from './reducers/root';
 import './main.css';
 
 import Header from './components/header';
-import SignIn from './components/signin';
-import SignUp from './components/signup';
+import { SignInForm, SignUpForm } from './components/forms';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware()
+  (compose((window.devToolsExtension ? window.devToolsExtension() : f => f)(createStore)));
 
 
 function main() {
@@ -22,8 +22,8 @@ function main() {
       <BrowserRouter>
         <Switch>
           <Header>
-            <Route path='/' exact component={SignIn}/>
-            <Route path='/signup' component={SignUp}/>
+            <Route path='/' exact component={SignInForm}/>
+            <Route path='/signup' component={SignUpForm}/>
           </Header>
         </Switch>
       </BrowserRouter>

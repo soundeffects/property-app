@@ -100,4 +100,13 @@ button:hover {
 
 a {
   color: #a30928;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.margin-link {
+  margin-left: 1em;
 }
